@@ -8,6 +8,10 @@ import ApiStatus, { loader as apiStatusLoader } from "@/routes/ApiStatus";
 import "./index.css";
 import CsrPage from "./routes/CsrPage";
 import HybridPage from "./routes/HybridPage";
+import { API_BASE_URL } from "@/utils/api";
+
+// console.log("React is working!");
+// console.log("API_BASE_URL:", API_BASE_URL);
 
 const router = createBrowserRouter([
   {

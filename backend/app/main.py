@@ -9,8 +9,18 @@ from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 from pathlib import Path
 from operator import itemgetter
+from dotenv import load_dotenv
 
-from app.utils.manifest import load_manifest, parse_manifest_entry
+from app.utils.manifest import parse_manifest_entry
+
+# Load environment variables from .env
+load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
+
+# Get environment mode
+ENV_MODE = os.getenv("ENV", "production")
+
+# Now you can use this in logic
+print(f"🔧 Running in {ENV_MODE.upper()} mode")
 
 app = FastAPI()
 

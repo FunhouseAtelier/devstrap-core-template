@@ -1,6 +1,7 @@
 // frontend/src/routes/ApiStatus.tsx
 
 import { useLoaderData } from "react-router-dom";
+import { API_BASE_URL } from "@/utils/api";
 
 type LoaderData = {
   status: string;
@@ -8,7 +9,7 @@ type LoaderData = {
 
 export async function loader(): Promise<LoaderData> {
   try {
-    const res = await fetch("http://localhost:8080/api/health");
+    const res = await fetch(`${API_BASE_URL}/api/health`);
     if (!res.ok) throw new Error(`Failed to fetch: ${res.statusText}`);
     return res.json();
   } catch (err) {
