@@ -1,4 +1,4 @@
-// @/frontend/src/App.tsx
+// frontend/src/App.tsx
 
 import "./App.css";
 

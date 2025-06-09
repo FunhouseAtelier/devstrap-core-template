@@ -1,1 +1,1 @@
-{"root":["./src/App.tsx","./src/main.tsx","./src/routes/ApiStatus.tsx","./vite.config.ts"],"version":"5.8.3"}
+{"root":["./src/App.tsx","./src/main.tsx","./src/routes/ApiStatus.tsx","./src/routes/CsrPage.tsx","./src/routes/HybridPage.tsx","./vite.config.ts"],"version":"5.8.3"}

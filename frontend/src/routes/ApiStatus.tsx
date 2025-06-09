@@ -1,4 +1,4 @@
-// @/frontend/src/components/ApiStatus.tsx
+// frontend/src/routes/ApiStatus.tsx
 
 import { useLoaderData } from "react-router-dom";
 

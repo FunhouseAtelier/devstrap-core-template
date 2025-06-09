@@ -1,4 +1,4 @@
-// @/frontend/postcss.config.mjs
+// frontend/postcss.config.mjs
 
 export default {
   plugins: {

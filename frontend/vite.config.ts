@@ -1,4 +1,4 @@
-// @/frontend/vite.config.ts
+// frontend/vite.config.ts
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -25,9 +25,10 @@ export default defineConfig(({ command }) => {
       },
     },
     build: {
-      outDir: "../backend/app/static", // <-- copy built files into backend
+      outDir: "../backend/app/static",
       emptyOutDir: true,
-      sourcemap: isDev,
+      manifest: true,
+      // sourcemap: isDev,
     },
   };
 });

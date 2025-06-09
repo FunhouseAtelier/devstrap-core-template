@@ -1,0 +1,17 @@
+<!-- backend/app/templates/csr.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSR Render</title>
+    {% if css_bundle %}
+    <link rel="stylesheet" href="/static/{{ css_bundle }}" />
+    {% endif %} {% if js_bundle %}
+    <script type="module" src="/static/{{ js_bundle }}"></script>
+    {% endif %}
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
