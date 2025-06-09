@@ -1,0 +1,46 @@
+# @/backend/.gitignore
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+pip-selfcheck.json
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+
+# Python dependency files
+poetry.lock
+Pipfile.lock
+
+# Logs and debugging
+*.log
+*.pot
+*.mo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Testing and coverage
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Uvicorn reload artifacts
+*.pid
+
+# Build artifacts
+build/
+dist/
+*.egg-info/

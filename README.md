@@ -44,6 +44,8 @@ See: `frontend/README.md`
 - Python 3.11+
 - `.venv/` local Python virtual environment
 
+See: `backend/README.md`
+
 ---
 
 ## 🚀 Getting Started
@@ -72,7 +74,7 @@ cd ../backend
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-uvicorn main:app --reload --port 8080
+uvicorn app.main:app --reload --port 8080
 ```
 
 > Open: `http://localhost:8080`
