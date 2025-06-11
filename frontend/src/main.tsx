@@ -1,40 +1,56 @@
 // frontend/src/main.tsx
 
+import "./index.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "@/App";
-import ApiStatus, { loader as apiStatusLoader } from "@/routes/ApiStatus";
-import "./index.css";
-import CsrPage from "./routes/CsrPage";
-import HybridPage from "./routes/HybridPage";
-import { API_BASE_URL } from "@/utils/api";
-
-// console.log("React is working!");
-// console.log("API_BASE_URL:", API_BASE_URL);
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
+import HomePage from "./routes/HomePage";
+import ApiStatus from "@/routes/ApiStatus";
+import ClientSideRendering from "./routes/ClientSideRendering";
+import HybridRendering from "./routes/HybridRendering";
+import NoDirectAccess from "./routes/NoDirectAccess";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <HomePage />,
   },
   {
     path: "/api-status",
     element: <ApiStatus />,
-    loader: apiStatusLoader,
   },
   {
-    path: "/csr",
-    element: <CsrPage />,
-  },
-  {
-    path: "/hybrid",
-    element: <HybridPage />,
+    path: "demo",
+    children: [
+      {
+        index: true, // This means the route "/demo"
+        element: <NoDirectAccess />,
+      },
+      {
+        path: "rendering",
+        element: <Navigate to="hybrid" replace />,
+      },
+      {
+        path: "rendering/client-side",
+        element: <ClientSideRendering />,
+      },
+      {
+        path: "rendering/hybrid",
+        element: <HybridRendering />,
+      },
+    ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </StrictMode>
 );

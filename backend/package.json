@@ -1,0 +1,14 @@
+{
+  "name": "devstrap-core-template-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "This folder contains the FastAPI-based backend for the DevStrap Core Template.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FunhouseAtelier/devstrap-core-template/frontend"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.8"
+  }
+}

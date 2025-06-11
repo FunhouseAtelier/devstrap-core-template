@@ -1,1 +1,1 @@
-{"root":["./src/App.tsx","./src/main.tsx","./src/routes/ApiStatus.tsx","./src/routes/CsrPage.tsx","./src/routes/HybridPage.tsx","./src/utils/api.ts","./vite.config.ts"],"version":"5.8.3"}
+{"root":["./src/main.tsx","./src/routes/ApiStatus.tsx","./src/routes/ClientSideRendering.tsx","./src/routes/HomePage.tsx","./src/routes/HybridRendering.tsx","./src/routes/NoDirectAccess.tsx","./src/utils/api.ts","./src/utils/useTitle.ts","./vite.config.ts"],"version":"5.8.3"}

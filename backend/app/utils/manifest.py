@@ -12,7 +12,7 @@ load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 # initialize manifest cache (used only in production environments)
 _manifest_cache: Optional[Dict] = None
 
-def load_manifest(static_dir: Path = Path(__file__).resolve().parent.parent / "static/.vite", force_reload: bool = False) -> Dict:
+def load_manifest(static_dir: Path = Path(__file__).resolve().parent.parent / "static/build/.vite", force_reload: bool = False) -> Dict:
     global _manifest_cache
 
     # Read ENV each time (instead of hard-coding it at module scope)

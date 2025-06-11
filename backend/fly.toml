@@ -1,9 +1,6 @@
-# fly.toml app configuration file generated for devstrap-core-template-summer-breeze-9526 on 2025-06-09T17:45:08-05:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+# backend/fly.toml
 
-app = 'devstrap-core-template-summer-breeze-9526'
+app = 'devstrap-core-template'
 primary_region = 'dfw'
 
 [build]
@@ -11,6 +8,8 @@ primary_region = 'dfw'
 
 [env]
   ENV = 'production'
+  PORT = "8080"
+  FORWARDED_ALLOW_IPS = "*"
 
 [[services]]
   protocol = 'tcp'
@@ -33,3 +32,8 @@ primary_region = 'dfw'
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+

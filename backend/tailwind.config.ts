@@ -1,9 +1,9 @@
-// frontend/tailwind.config.ts
+// backend/tailwind.config.ts
 
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./app/static/build/**/*.{jinja,j2,html}"],
   theme: {
     extend: {},
   },
