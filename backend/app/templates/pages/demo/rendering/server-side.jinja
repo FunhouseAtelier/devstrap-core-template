@@ -19,12 +19,12 @@
       <p class="text-lg text-orange-800">
         Hello {{ user }}! This content was rendered server-side with Jinja2.
       </p>
-      <button   
-        href="/"
-        className="text-neutral-200 font-semibold bg-teal-600 px-4 py-2 rounded hover:bg-teal-700"
+      <a  
+        href="{{ url_for('home_page') }}"
+        class="text-neutral-200 font-semibold bg-teal-600 px-4 py-2 rounded hover:bg-teal-700"
       >
         Home Page
-      </button>
+      </a>
     </div>
   </div>
 {% endblock body %}

@@ -14,6 +14,7 @@ import ClientSideRendering from "./routes/ClientSideRendering";
 import HybridRendering from "./routes/HybridRendering";
 import NoDirectAccess from "./routes/NoDirectAccess";
 import { HelmetProvider } from "react-helmet-async";
+import FrontendHealth from "./routes/FrontendHealth";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
         element: <HybridRendering />,
       },
     ],
+  },
+  {
+    path: "/healthz",
+    element: <FrontendHealth />,
   },
 ]);
 
