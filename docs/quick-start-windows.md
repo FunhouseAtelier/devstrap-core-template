@@ -14,7 +14,7 @@ Welcome to the **DevStrap Core Template**! This guide will walk you through clon
 git clone https://github.com/FunhouseAtelier/devstrap-core-template.git
 ```
 
-4. (Optional) Rename the project folder.
+4. **(Optional)** Rename the project folder.
 
 ```bash
 mv devstrap-core-template <YOUR_PROJECT_NAME>
@@ -22,7 +22,13 @@ mv devstrap-core-template <YOUR_PROJECT_NAME>
 
 If this does not work in VS Code, try closing the folder you are in, then start a new terminal, navigate to the folder you were in (`/WebDev/`?), and run the command again.
 
-5. In VS Code select `File > Open Folder...` and open the new project folder: `devstrap-core-template` by default. This is the folder all scripts are intended to be run from, and it contains the git repository for your fork of the project. (Optional) If you changed the project folder name, you should change the project name in `backend/package.json` and `frontend/package.json` to match the new name.
+5. In VS Code select `File > Open Folder...` and open the new project folder: `devstrap-core-template` by default. This is the folder all scripts are intended to be run from, and it contains the git repository for your fork of the project.
+
+**(Optional)** If you changed the project folder name, you should change the default project name to yours in
+
+- `backend/package.json`
+- `frontend/package.json`
+- `backend/fly.toml`
 
 ## 🎨 Step 2: Set Up the Frontend
 
