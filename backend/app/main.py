@@ -13,7 +13,7 @@ from app.utils.templates import render
 
 # Load environment mode
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
-ENV_MODE = os.getenv("ENV", "production")
+ENV_MODE = os.getenv("ENV_MODE", "production")
 print(f"🔧 Running in {ENV_MODE.upper()} mode")
 
 # Create app
