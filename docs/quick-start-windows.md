@@ -1,6 +1,9 @@
-# Quick Start (Windows) – devstrap-core-template v1.0.0
+# Quick Start (Windows) – devstrap-core-template v1.0.3
 
-Welcome to the **DevStrap Core Template**! This guide will walk you through cloning, setting up, running, testing, and deploying this project on **Windows**, assuming you will use **Git Bash** and **VS Code**.
+Welcome to the **DevStrap Core Template**! This guide will walk you through cloning, setting up, running, testing, and deploying this project on **Windows**, assuming you will use **Git Bash** and **VS Code**. The instructions should not differ much, if at all, on a Linux or Mac OS, with one notable exception:
+
+- Windows uses `source .venv/Scripts/activate` to activate the Python virtual environment, however
+- Linux uses `source .venv/bin/activate`
 
 ---
 
@@ -20,9 +23,9 @@ git clone https://github.com/FunhouseAtelier/devstrap-core-template.git
 mv devstrap-core-template <YOUR_PROJECT_NAME>
 ```
 
-If this does not work in VS Code, try closing the folder you are in, then start a new terminal, navigate to the folder you were in (`/WebDev/`?), and run the command again.
+If this does not work in VS Code, try closing the folder you are in via `File > Close Folder`, then start a new terminal, navigate to the folder you were in (`/WebDev/`?), and run the command again.
 
-5. In VS Code select `File > Open Folder...` and open the new project folder: `devstrap-core-template` by default. This is the folder all scripts are intended to be run from, and it contains the git repository for your fork of the project.
+5. In VS Code select `File > Open Folder...` and open the new project folder, which would be `devstrap-core-template` by default. This is the folder all scripts are intended to be run from, and it contains the git repository for your fork of the project.
 
 **(Optional)** If you changed the project folder name, you should change the default project name to yours in
 
@@ -32,7 +35,7 @@ If this does not work in VS Code, try closing the folder you are in, then start 
 
 ## 🎨 Step 2: Set Up the Frontend
 
-Open a new terminal.
+**Open a new terminal.**
 
 ### 2.1 Install Node Dependencies
 
@@ -68,7 +71,7 @@ If you have not started the backend server yet (you shouldn't before you build) 
 - `/demo/rendering/server-side` will not work, it's a pure SSR route, so there is no React route component to render
 - `/demo/rendering/hybrid` will only show the React part of the page, not the template it is meant to be contained in
 
-You can test live updates by modifying:
+Live reload is enabled. You can test modifying views in:
 
 - `frontend/src/routes/ClientSideRendering.tsx` (e.g., change the message to your own)
 - or any file within `frontend/src/routes/`
@@ -79,12 +82,11 @@ As soon as you save the file the changes should be rendered in the browser.
 
 This will transpile all of the React code and export it to the backend for serving to browsers. You must do this at least once to enable the backend server to run with no errors (it looks for these files), so don't skip to the backend setup, but it is not necessary to build when only testing with the frontend development server (`http://localhost:5173`).
 
-You should re-build whenever you have changed anything in the frontend code to ensure the backend serves the latest revision of your work, but if you only need to test React code you do not need to build before testing with the frontend development server, Vite will hot reload all of your changes after saving a file.
+You should re-build whenever you have changed anything in the frontend code that you want to see reflected on the backend server (`http://localhost:8080`), but if you only need to test React code you do not need to build before testing with the frontend development server (`http://localhost:5173`), Vite will hot reload all of your changes after saving a file.
 
-You may do this while running any of the development servers, just open a new terminal window to avoid stopping the server. Always do it before checking the backend server (`http://localhost:8080`) for any updates that combine frontend components with routes that exist on the backend (SSR or hybrid, not CSR). If your updates to React components are not showing on the backend server you probably need to run this again.
+You may build the static assets while running any and all of the development servers, just open a new terminal window to avoid stopping the server(s). Always do it before checking the backend server (`http://localhost:8080`) for any updates that combine frontend components with routes that exist on the backend (SSR or hybrid, not CSR). If your updates to React components are not showing on the backend server you probably need to run this again (still in `frontend/`).
 
 ```bash
-cd frontend
 npm run build
 ```
 
@@ -92,7 +94,7 @@ npm run build
 
 ## 🧱 Step 3: Set Up the Backend
 
-Open a new terminal.
+**Open a new terminal.**
 
 ### 3.1 Create a Python Virtual Environment
 
@@ -101,7 +103,7 @@ cd backend
 python -m venv .venv
 ```
 
-> 🧠 Tip: If `python` isn't found, install Python 3.11+ from [python.org](https://www.python.org/) and make sure to check "Add to PATH".
+> 🧠 Tip: If `python` isn't found, install Python 3.11+ from [python.org](https://www.python.org/) and make sure to check "Add to PATH", then kill all terminals and start a new one.
 
 #### Activating a Python Virtual Environment
 
@@ -111,9 +113,9 @@ source .venv/Scripts/activate
 
 You will know it worked if you see `(.venv)` at the start of all future terminal prompts.
 
-This terminal is now using the Python virtual environment, which is Python's solution to packaging extensions for the backend, similar to NPM in Node, but instead of installing into a `node_modules` folder it installs to a virtual environment folder, so running code directly in `backend/` like this always requires you to be in the virtual environment.
+This terminal is now using the Python virtual environment, which is Python's solution to packaging extensions for the backend, similar to NPM in Node, but instead of installing into a `node_modules` folder it installs to a `.venv` virtual environment folder, so when running code directly inside `backend/` like this you always want to ensure you are using the virtual environment.
 
-Note that any new terminals you create in VS Code will not automatically use this virtual environment, so you must do it for each terminal you want to use for direct `backend/` work. The helper scripts included in this project do it for you.
+Note that any new terminals you create in VS Code, no matter what location, will not automatically use this virtual environment, so you must do it for each terminal you want to use for direct `backend/` work. The helper scripts included in this project activate the virtual environment for you.
 
 #### Deactivating a Python Virtual Environment
 
@@ -121,7 +123,7 @@ Note that any new terminals you create in VS Code will not automatically use thi
 deactivate
 ```
 
-You will know it worked if you **do not** see `(.venv)` at the start of all terminal prompts.
+It's that simple. You will know it worked if you **do not** see `(.venv)` at the start of all terminal prompts.
 
 ### 3.2 Install Python Requirements
 
@@ -130,7 +132,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-This is analogous to `npm install` for Python, and `requirements.txt` is like the `dependencies` data in `package.json`.
+This is analogous to `npm install` for Python, and `requirements.txt` is like the `dependencies` data in `package.json`. It will install all of the Python packages needed to run the backend.
 
 ### 3.3 Set Up Environment Variables
 
@@ -174,6 +176,8 @@ This copies the `.env.example` file for the backend to the actual `.env` file th
 
 4. Save and close `settings.json`.
 
+Now your Jinja templates (`*.jinja` in this project) will have nice syntax highlighing and auto-formatting, using my own custom formatting settings inside the file `backend/pyproject.toml`.
+
 ### 3.5 Run the Backend Server
 
 ```bash
@@ -184,11 +188,11 @@ Allow Python permission to host the development server.
 
 Visit: `http://localhost:8080`
 
-The frontend dev server at `http://localhost:5173` should now be completely functional. It proxies anything that needs to hit the backend with `localhost:8080` instead of `localhost:5173`. But you do not need to keep running the frontend server anymore if you don't want to, the backend server will cover it all, because you ran `npm run build` in the `frontend/` folder before you got here, didn't you?
+The frontend dev server at `http://localhost:5173` should now be completely functional as well. It proxies anything that needs to hit the backend with `localhost:8080` instead of `localhost:5173`. But you do not need to keep running the frontend server anymore if you don't want to work on the React code, the backend server will cover all routes, because you ran `npm run build` in the `frontend/` folder before you got here. You did build before running the backend server, didn't you? :)
 
 ### 3.6 Install the Tailwind CLI
 
-Open another terminal.
+**Open another terminal.** (third and last one if you do it manually like this instead of just running `scripts/dev.sh` from the project root folder)
 
 ```bash
 cd backend
@@ -198,8 +202,6 @@ npm install
 ### 3.7 Run the Backend Tailwind Monitor
 
 ```bash
-cd backend
-echo "🔁 Watching ./app/templates/**/*.{jinja,j2,html} for Tailwind class changes..."
 npx tailwindcss \
   -i ./app/static/css/tailwind.css \
   -o ./app/static/css/app.css \
@@ -208,13 +210,13 @@ npx tailwindcss \
   --watch
 ```
 
-This will start the Tailwind monitor necessary for live updates of Tailwind styling on the backend.
+Yeah, this one is a mouthful, which is why I automated it in `scripts/build.sh`, which also builds the static assets with `npm run build`. This long command will start the Tailwind monitor necessary for live updates of Tailwind styling on the backend.
 
-As always, the backend is server-side rendered, so the changes will not appear automatically in your browser when you save the file, you will need to reload the page. What the monitor does when you save a file with Tailwind utility classes is it quickly rebuilds a file called `app.css` that contains all of the styles you are using, and more importantly none of the Tailwind styles you are not using.
+As always, the backend is server-side rendered, so the changes will not appear automatically in your browser when you save the file after changing Tailwind utility classes, you will need to reload the page. What the monitor does when you save a file with Tailwind utility classes is it quickly rebuilds a file called `app.css` that contains all of the styles you are using on the backend, and more importantly none of the Tailwind styles you are not using there, for efficiency.
 
 You don't need to run a Tailwind monitor on the frontend because Vite handles that for you. Eventually Vite will handle the backend monitoring too, in Emulsion, when the folder structure is unified.
 
-Live reload is enabled. You can test rendering routes by modifying:
+Live reload is enabled. You can test modifying views in:
 
 - `backend/app/routes/pages/demo/rendering/server-side.tsx`
 - or any file within `backend/app/routes/`
@@ -223,36 +225,37 @@ Live reload is enabled. You can test rendering routes by modifying:
 
 ## ✅ Step 4: Test Changes in Both Sides
 
-Make sure both backend (`localhost:8080`) and frontend (`localhost:5173`) are running.
+Make sure both backend (`localhost:8080`) and frontend (`localhost:5173`) are running, and your changes to views on each are reflected appropriately (must `npm run build` for backend server to see changes to React content).
 
-Try editing the Jinja2 page at:
+Try editing the Jinja2 page template at:
 
 ```plaintext
 backend/app/routes/pages/demo/rendering/server-side.jinja
 ```
 
-and the corresponding React route:
+and the corresponding React route component:
 
 ```plaintext
 frontend/src/routes/demo/rendering/ClientSideRendering.tsx
 ```
 
-You’ll see changes appear live in the browser!
-
-Remember that you will need to rebuild the frontend assets before they will be served by the backend at `localhost:8080`, which is the server that will be deployed, so you always build immediately before deploying as well.
-
-```bash
-cd frontend
-npm run build
-```
+You’ll see changes appear live in the browser! On the backend don't forget to reload the page.
 
 ---
 
-## 🚀 Step 5: Deploy to Production
+## 🛑 Step 5: STOP! (in the name of all that is sacred)
 
-### 5.1 Initialize Fly.io
+**Open another terminal.**
+
+Run `scripts/stop.sh` from the project root folder to stop all servers at once. You don't want to leave them running when you are not developing the app.
+
+## 🚀 Step 6: Deploy to Production
+
+### 6.1 Initialize Fly.io
 
 If you haven’t already:
+
+**Open another terminal.**
 
 ```bash
 cd backend
@@ -260,16 +263,17 @@ fly auth login
 fly launch  # follow the prompts
 ```
 
-### 5.1 Deploy Backend to Fly.io
+### 6.2 Deploy Backend to Fly.io
 
 ```bash
-cd backend
 fly deploy
 ```
 
 The backend is served on port `8080` (already configured in `fly.toml`).
 
 Wait for the new deployment to succeed. You should get a success response in the terminal and the process will end.
+
+You may also deploy by running `scripts/deploy.sh` from the project root folder.
 
 ## 📦 Summary
 
