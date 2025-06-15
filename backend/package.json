@@ -1,7 +1,7 @@
 {
   "name": "devstrap-core-template-backend",
   "private": true,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This folder contains the FastAPI-based backend for the DevStrap Core Template.",
   "license": "MIT",
   "repository": {

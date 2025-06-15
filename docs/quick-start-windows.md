@@ -1,4 +1,4 @@
-# Quick Start (Windows) – devstrap-core-template v1.0.4
+# Quick Start (Windows) – devstrap-core-template v1.0.5
 
 Welcome to the **DevStrap Core Template**! This guide will walk you through cloning, setting up, running, testing, and deploying this project on **Windows**, assuming you will use **Git Bash** and **VS Code**. The instructions should not differ much, if at all, on a Linux or Mac OS, with one notable exception:
 
