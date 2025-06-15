@@ -1,4 +1,4 @@
-# Quick Start (Windows) – devstrap-core-template v1.0.3
+# Quick Start (Windows) – devstrap-core-template v1.0.4
 
 Welcome to the **DevStrap Core Template**! This guide will walk you through cloning, setting up, running, testing, and deploying this project on **Windows**, assuming you will use **Git Bash** and **VS Code**. The instructions should not differ much, if at all, on a Linux or Mac OS, with one notable exception:
 
@@ -103,7 +103,7 @@ cd backend
 python -m venv .venv
 ```
 
-> 🧠 Tip: If `python` isn't found, install Python 3.11+ from [python.org](https://www.python.org/) and make sure to check "Add to PATH", then kill all terminals and start a new one.
+> 🧠 Tip: If `python` isn't found, install Python 3.11+ from [python.org](https://www.python.org/) and make sure to check "Add to PATH", then kill all terminals and start a new one. In the new terminal enter command `exec bash -l` to force Bash to restart and update the `PATH` it uses.
 
 #### Activating a Python Virtual Environment
 
