@@ -9,15 +9,17 @@ Welcome to the **DevStrap Core Template**! This guide will walk you through clon
 
 ## 🚀 Step 1: Clone the Template
 
-1. Open VS Code.
-2. Open **Git Bash** in your VS Code terminal.
-3. Clone the public template repository:
+1. Visit https://github.com/FunhouseAtelier/devstrap-core-template
+2. Click the green "Use this template" button to fork the template into a repo of your own
+3. Open VS Code in the folder where you want the new project folder to be created.
+4. Open **Git Bash** in your VS Code terminal.
+5. Clone the forked repo you just created. By default it would be:
 
 ```bash
-git clone https://github.com/FunhouseAtelier/devstrap-core-template.git
+git clone https://github.com/<GITHUB_USERNAME>/devstrap-core-template.git
 ```
 
-4. **(Optional)** Rename the project folder.
+6. **(Optional)** Rename the project folder.
 
 ```bash
 mv devstrap-core-template <YOUR_PROJECT_NAME>
@@ -25,7 +27,7 @@ mv devstrap-core-template <YOUR_PROJECT_NAME>
 
 If this does not work in VS Code, try closing the folder you are in via `File > Close Folder`, then start a new terminal, navigate to the folder you were in (`/WebDev/`?), and run the command again.
 
-5. In VS Code select `File > Open Folder...` and open the new project folder, which would be `devstrap-core-template` by default. This is the folder all scripts are intended to be run from, and it contains the git repository for your fork of the project.
+7. In VS Code select `File > Open Folder...` and open the new project folder, which would be `devstrap-core-template` by default. This is the folder all scripts are intended to be run from, and it contains the git repository for your fork of the project.
 
 **(Optional)** If you changed the project folder name, you should change the default project name to yours in
 
