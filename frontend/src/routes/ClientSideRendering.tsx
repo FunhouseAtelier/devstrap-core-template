@@ -21,10 +21,7 @@ export default function ClientSideRendering() {
           <h1 className="text-3xl font-bold text-violet-800">
             Client-Side Rendering
           </h1>
-          <p className="text-lg text-violet-600">
-            Do your demons, Do they ever let you go? When you try, do they hide
-            deep inside? Is is someone that you know?
-          </p>
+          <p className="text-lg text-violet-600">Rendered fully in React.</p>
           <Link
             to="/"
             className="text-neutral-200 font-semibold bg-teal-600 px-4 py-2 rounded hover:bg-teal-700"
